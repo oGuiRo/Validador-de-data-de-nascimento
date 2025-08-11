@@ -1,4 +1,4 @@
-        function calcularIdade(dia, mes, ano) {
+function calcularIdade(dia, mes, ano) {
             const hoje = new Date();
             let idade = hoje.getFullYear() - ano;
 
@@ -7,9 +7,9 @@
                 idade--;
             }
             return idade;
-        }
+}
 
-        function validarData() {
+function validarData() {
             const dia = parseInt(document.getElementById("dia").value);
             const mes = parseInt(document.getElementById("mes").value);
             const ano = parseInt(document.getElementById("ano").value);
@@ -55,4 +55,4 @@
             const resultado = document.getElementById("resultado");
             resultado.innerText = mensagem;
             resultado.className = `resultado ${classe}`;
-        }
+}
