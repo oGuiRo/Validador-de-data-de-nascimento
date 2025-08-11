@@ -1,119 +1,13 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+<link rel="stylesheet" type="text/css" href="stylesheet.css" media="screen" />
 <head>
     <meta charset="UTF-8">
     <title>Validador de Data de Nascimento</title>
-    <style>
-        /* Reset */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: "Segoe UI", sans-serif;
-        }
-
-        /* Fundo animado */
-        body {
-            background: linear-gradient(135deg, #ebebeb, #838383);
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            animation: bgMove 8s ease-in-out infinite alternate;
-        }
-
-        @keyframes bgMove {
-            0% { background-position: 0% 50%; }
-            100% { background-position: 100% 50%; }
-        }
-
-        /* Container principal */
-        .container {
-            background: rgba(255, 255, 255, 0.15);
-            padding: 30px;
-            border-radius: 20px;
-            backdrop-filter: blur(15px);
-            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25);
-            text-align: center;
-            width: 350px;
-            color: white;
-            animation: fadeIn 1.2s ease;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        h1 {
-            font-size: 1.5rem;
-            margin-bottom: 15px;
-        }
-
-        p {
-            margin: 10px 0;
-            font-size: 1.1rem;
-        }
-
-        /* Inputs */
-        input {
-            padding: 8px;
-            margin: 5px;
-            width: 70px;
-            text-align: center;
-            border-radius: 8px;
-            border: none;
-            outline: none;
-            font-size: 1rem;
-            transition: 0.3s;
-        }
-
-        input:focus {
-            box-shadow: 0 0 10px #ffffff88;
-            transform: scale(1.05);
-        }
-
-        /* Botão */
-        button {
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #ffffff22;
-            color: white;
-            border: 1px solid #ffffff55;
-            border-radius: 8px;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        button:hover {
-            background: #ffffff33;
-            transform: scale(1.05);
-        }
-
-        /* Resultado */
-        .resultado {
-            margin-top: 20px;
-            font-weight: bold;
-            font-size: 1.1rem;
-            min-height: 40px;
-            padding: 10px;
-            border-radius: 8px;
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        /* Mensagens de sucesso e erro */
-        .sucesso {
-            color: #00ff0d;
-        }
-
-        .erro {
-            color: #ff0000;
-        }
-    </style>
+    
 </head>
-<body>
 
+<body>
     <div class="container">
         <h1>📅 Validador de Data de Nascimento</h1>
         <p>Preencha sua data:</p>
@@ -125,67 +19,7 @@
 
         <div class="resultado" id="resultado"></div>
     </div>
-
-    <script>
-        function calcularIdade(dia, mes, ano) {
-            const hoje = new Date();
-            let idade = hoje.getFullYear() - ano;
-
-            if (mes > (hoje.getMonth() + 1) || 
-               (mes === (hoje.getMonth() + 1) && dia > hoje.getDate())) {
-                idade--;
-            }
-            return idade;
-        }
-
-        function validarData() {
-            const dia = parseInt(document.getElementById("dia").value);
-            const mes = parseInt(document.getElementById("mes").value);
-            const ano = parseInt(document.getElementById("ano").value);
-            const hoje = new Date();
-            const anoAtual = hoje.getFullYear();
-            let mensagem = "";
-            let classe = "";
-
-            if (mes >= 1 && mes <= 12 && ano > 0 && ano <= anoAtual && dia > 0 && dia <= 31) {
-
-                let dataValida = false;
-
-                if (mes === 2) {
-                    if (dia === 29) {
-                        if ((ano % 4 === 0 && ano % 100 !== 0) || (ano % 400 === 0)) {
-                            dataValida = true;
-                        }
-                    } else if (dia <= 28) {
-                        dataValida = true;
-                    }
-                }
-                else if ([1, 3, 5, 7, 8, 10, 12].includes(mes)) {
-                    if (dia <= 31) dataValida = true;
-                }
-                else if ([4, 6, 9, 11].includes(mes)) {
-                    if (dia <= 30) dataValida = true;
-                }
-
-                if (dataValida) {
-                    const idade = calcularIdade(dia, mes, ano);
-                    mensagem = `✅ A data informada é válida. Sua idade é: ${idade} anos.`;
-                    classe = "sucesso";
-                } else {
-                    mensagem = "❌ A data informada é inválida!";
-                    classe = "erro";
-                }
-
-            } else {
-                mensagem = "❌ A data informada é inválida!";
-                classe = "erro";
-            }
-
-            const resultado = document.getElementById("resultado");
-            resultado.innerText = mensagem;
-            resultado.className = `resultado ${classe}`;
-        }
-    </script>
+            <script src="script.js"></script>
 
 </body>
 </html>
