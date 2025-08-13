@@ -57,5 +57,15 @@ function validarData() {
     resultado.className = `resultado ${classe}`;
 }
 
-// Detectar Enter no campo Ano e clicar no botão
-document.getElementById("btnValidar").click();
+// Detecta Enter no campo "ano" e clica no botão
+document.addEventListener('DOMContentLoaded', () => {
+    const anoInput = document.getElementById('ano');
+    const botaoValidar = document.querySelector('btnValidar'); // ou use id se quiser mais seguro
+
+    anoInput.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // evita enviar formulário ou recarregar página
+            botaoValidar.click();   // dispara o clique no botão
+        }
+    });
+});
