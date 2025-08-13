@@ -15,22 +15,11 @@
         <input type="number" id="mes" placeholder="Mês" min="1" max="12">
         <input type="number" id="ano" placeholder="Ano" min="1">
         <br>
-        <button onclick="validarData()">Validar Data</button>
+        <button id="btnValidar" onclick="validarData()">Validar Data</button>
 
         <div class="resultado" id="resultado"></div>
     </div>
-            <script>
-        // Captura o campo ano
-        const campoAno = document.getElementById("ano");
-
-        // Adiciona evento para tecla pressionada
-        campoAno.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                event.preventDefault(); // evita recarregar a página
-                document.getElementById("btnValidar").click(); // clica no botão
-            }
-        });
-            </script>
+            <script src="script.js"></script>
 
 </body>
 </html>
