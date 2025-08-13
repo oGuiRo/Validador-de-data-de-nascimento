@@ -63,7 +63,7 @@ function validarData() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const anoInput = document.getElementById('ano || mes || dia');
+    const anoInput = document.getElementById('dia || mes || ano');
     const botaoValidar = document.getElementById('btnValidar'); // ⬅ Correção problema 2
 
     anoInput.addEventListener('keydown', (event) => {
