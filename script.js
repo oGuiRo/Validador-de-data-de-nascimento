@@ -13,6 +13,11 @@ function validarData() {
     const dia = parseInt(document.getElementById("dia").value);
     const mes = parseInt(document.getElementById("mes").value);
     const ano = parseInt(document.getElementById("ano").value);
+
+    if (!dia || !mes || !ano) {
+        return;
+    }
+
     const hoje = new Date();
     const anoAtual = hoje.getFullYear();
     let mensagem = "";
@@ -57,15 +62,14 @@ function validarData() {
     resultado.className = `resultado ${classe}`;
 }
 
-// Detecta Enter no campo "ano" e clica no botão
 document.addEventListener('DOMContentLoaded', () => {
     const anoInput = document.getElementById('ano');
-    const botaoValidar = document.querySelector('btnValidar'); // ou use id se quiser mais seguro
+    const botaoValidar = document.getElementById('btnValidar'); // ⬅ Correção problema 2
 
     anoInput.addEventListener('keydown', (event) => {
         if (event.key === 'Enter') {
-            event.preventDefault(); // evita enviar formulário ou recarregar página
-            botaoValidar.click();   // dispara o clique no botão
+            event.preventDefault();
+            botaoValidar.click();
         }
     });
 });
