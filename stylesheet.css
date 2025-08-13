@@ -9,7 +9,7 @@
 
         /* Fundo animado */
         body {
-            background: linear-gradient(135deg, #ebebeb, #838383);
+            background: linear-gradient(135deg, #04e0e7, #006a85);
             min-height: 100vh;
             display: flex;
             align-items: center;
