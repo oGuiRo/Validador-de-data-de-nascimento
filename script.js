@@ -63,13 +63,19 @@ function validarData() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
-    const anoInput = document.getElementById('dia || mes || ano');
-    const botaoValidar = document.getElementById('btnValidar'); // ⬅ Correção problema 2
+    const campos = [
+        document.getElementById('dia'),
+        document.getElementById('mes'),
+        document.getElementById('ano')
+    ];
+    const botaoValidar = document.getElementById('btnValidar');
 
-    anoInput.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter') {
-            event.preventDefault();
-            botaoValidar.click();
-        }
+    campos.forEach(campo => {
+        campo.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                botaoValidar.click();
+            }
+        });
     });
 });
